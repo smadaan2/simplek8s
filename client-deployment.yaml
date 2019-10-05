@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 1 #Create 1 pod by using below template
+  selector:   # 
+    matchLabels:
+      component: web
+  template:   #Listing out configuration which is used by every single pod which is created by this deployment
+    metadata:
+      labels:
+        component: web
+    spec:         
+      containers:
+        - name: client
+          image: smadaan2/multi-client
+          ports:
+            - containerPort: 3000  
