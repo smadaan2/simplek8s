@@ -1,12 +1,12 @@
 apiVersion: v1     #limits the type of objects we want to create by giving specific configuration file
-kind: Service      #setup networking
+kind: Service      # this kind is used for setup networking
 metadata: 
-  name: client-node-port
-spec:
+  name: client-node-port  #name of service
+spec:             #its configure the way a service behave
   type: NodePort  
   ports: 
-    - port: 3050
-      targetPort: 3000
-      nodePort: 31515
-  selector:
+    - port: 3050        #Other Pod that needs to access this port
+      targetPort: 3000  #Port of container
+      nodePort: 31515   #Outside accessible port
+  selector:      #Service knows what set of pod its supposed to providing access too
      component: web    

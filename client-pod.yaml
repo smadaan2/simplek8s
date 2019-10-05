@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod       #run a container
 metadata: 
-  name: client-pod
+  name: client-pod  # name of pod
   labels:
-    component: web
+    component: web  #This label is used by Service 
 spec:
   containers:
     - name: client 
